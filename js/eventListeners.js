@@ -3,7 +3,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         // User is signed in.
         let loggedInUserId = user.uid;
 
-       // let usearch = document.getElementById('search');
+        // let usearch = document.getElementById('search');
 
         document.addEventListener('DOMContentLoaded', async () => {
 
@@ -16,7 +16,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                 const snapshot = await db.collection('usersDetails')
                     .where('firstName', 'array-contains', usearch.toLowerCase())
                     .orderBy("firstName")
-                   // .startAfter(firstName)
+                    // .startAfter(firstName)
                     .get();
 
 
@@ -29,11 +29,16 @@ firebase.auth().onAuthStateChanged(function (user) {
                 `
             })
 
-            const textBox= document.querySelector("#search");
-            const rowUsers =document.querySelector('#applicants');
-            rowUsers.innerHTML=await searchByName();
 
-            textBox.addEventListener('keyup', async (e)=> rowUsers.innerHTML =await searchByName({search:e.target.value}));
+            
+
+            const textBox = document.querySelector("#search");
+            const rowUsers = document.querySelector('#applicants');
+            rowUsers.innerHTML = await searchByName();
+
+            textBox.addEventListener('keyup', async (e) => rowUsers.innerHTML = await searchByName({
+                search: e.target.value
+            }));
 
 
 
