@@ -1,0 +1,15 @@
+.d-none{
+    display: none;
+    
+}
+
+#newapplicatData{
+    text-decoration: none;
+    color: black;
+
+}
+
+#unread{
+    color: red;
+    cursor: pointer;
+}
